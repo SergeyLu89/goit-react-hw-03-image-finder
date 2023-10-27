@@ -1,0 +1,12 @@
+.loadMoreBtn {
+  display: block;
+  margin: 24px auto;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid;
+  box-shadow: 0 1px 2px #000;
+}
+.loadMoreBtn:hover,
+.loadMoreBtn:focus {
+  background-color: #b2b8b5;
+}

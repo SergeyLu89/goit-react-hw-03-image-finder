@@ -1,4 +1,4 @@
-// import css from './Searchbar.module.css';
+import css from './Searchbar.module.css';
 
 export function Searchbar({ onSearchbarSubmit }) {
   const onFormSubmit = event => {
@@ -10,15 +10,15 @@ export function Searchbar({ onSearchbarSubmit }) {
     form.reset();
   };
   return (
-    <header className="searchbar">
-      <form className="form" onSubmit={onFormSubmit}>
-        <button type="submit" className="button">
-          <span className="button-label">Search</span>
+    <header className={css.searchbar}>
+      <form className={css.form} onSubmit={onFormSubmit}>
+        <button type="submit" className={css.submitBtn}>
+          <span className={css.buttonLabel}>Search</span>
         </button>
 
         <input
           name="search"
-          className="input"
+          className={css.searchInput}
           type="text"
           autoComplete="off"
           autoFocus
