@@ -8,8 +8,9 @@ export const ImageGalleryItem = ({
   return (
     <li
       className={css.galleryListItem}
-      data-url={largeImageURL}
-      onClick={openModal}
+      onClick={() => {
+        openModal(largeImageURL);
+      }}
     >
       <img className={css.galleryItemImage} src={webformatURL} alt={tags} />
     </li>

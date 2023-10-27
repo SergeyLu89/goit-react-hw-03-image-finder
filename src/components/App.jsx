@@ -29,21 +29,12 @@ export class App extends React.Component {
     ) {
       try {
         this.setState({ isLoading: true });
-        const data = await fechImage(query, page);
-        const hits = data.hits;
-        const totalHits = data.totalHits;
+        const { hits, totalHits } = await fechImage(query, page);
 
-        if (this.state.query !== prevState.query) {
-          this.setState({
-            hits: hits,
-            totalHits: totalHits,
-          });
-        } else {
-          this.setState({
-            hits: [...this.state.hits, ...hits],
-            totalHits: totalHits,
-          });
-        }
+        this.setState({
+          hits: [...this.state.hits, ...hits],
+          totalHits: totalHits,
+        });
       } catch (error) {
         this.setState({ error: error.message });
       } finally {
@@ -58,16 +49,12 @@ export class App extends React.Component {
   // -----------------------------Load Btn ---
   // -----------------------------Form Submit ---
   onSearchbarSubmit = query => {
-    const page = 1;
-    this.setState({ query: query, page: page });
+    this.setState({ query, page: 1, hits: [] });
   };
   // -----------------------------Form Submit ---
   // ---------------------------- modal ---
-  openModal = event => {
-    // console.log(event.currentTarget.dataset.url);
-    const largeImageUrl = event.currentTarget.dataset.url;
-
-    this.setState({ showModal: true, modalUrl: largeImageUrl });
+  openModal = url => {
+    this.setState({ showModal: true, modalUrl: url });
   };
 
   closeModal = () => {
