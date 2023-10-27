@@ -20,7 +20,7 @@ export class App extends React.Component {
     modalUrl: null,
   };
 
-  async componentDidUpdate(prevProps, prevState) {
+  async componentDidUpdate(_, prevState) {
     const { query, page } = this.state;
 
     if (
@@ -32,9 +32,6 @@ export class App extends React.Component {
         const data = await fechImage(query, page);
         const hits = data.hits;
         const totalHits = data.totalHits;
-
-        // console.log('STATE QUERY:', this.state.query);
-        // console.log('PREV STATE QUERY:', prevState.query);
 
         if (this.state.query !== prevState.query) {
           this.setState({
@@ -95,7 +92,6 @@ export class App extends React.Component {
         {showModal && (
           <Modal modalUrl={modalUrl} closeModal={this.closeModal} />
         )}
-        {/* <Modal closeModal={this.closeModal} /> */}
       </div>
     );
   }

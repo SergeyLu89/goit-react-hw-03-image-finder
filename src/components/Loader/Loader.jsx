@@ -13,7 +13,6 @@ export const Loader = () => {
         wrapperClassName=""
         visible={true}
       />
-      ;
     </div>
   );
 };
